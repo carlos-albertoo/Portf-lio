@@ -26,16 +26,86 @@ function typeWriterTitle(element, text, speed) {
     type();
 }
 
-// Smooth scroll para links de navegação
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth'
+// Animação do navbar com indicador e links ativos
+function initNavbarAnimation() {
+    const navLinks = document.querySelectorAll('.navbar a');
+    const indicator = document.querySelector('.indicator');
+    const menuToggle = document.getElementById('menu-toggle');
+    
+    function updateIndicator(link) {
+        if (!link || !indicator) return;
+        
+        const linkRect = link.getBoundingClientRect();
+        const navbarRect = document.querySelector('.navbar ul').getBoundingClientRect();
+        
+        if (navbarRect.width > 0) {
+            indicator.style.left = (linkRect.left - navbarRect.left) + 'px';
+            indicator.style.width = linkRect.width + 'px';
+        }
+    }
+    
+    function setActiveLink(link) {
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+        updateIndicator(link);
+    }
+    
+    // Evento de clique nos links
+    navLinks.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            setActiveLink(this);
+            
+            // Fechar menu mobile
+            if (menuToggle) {
+                menuToggle.checked = false;
+            }
+            
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-});
+    
+    // Detectar link ativo ao fazer scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+                updateIndicator(link);
+            }
+        });
+    });
+    
+    // Inicializar indicador no primeiro link
+    if (navLinks.length > 0) {
+        setActiveLink(navLinks[0]);
+    }
+    
+    // Atualizar indicador ao redimensionar
+    window.addEventListener('resize', () => {
+        const activeLink = document.querySelector('.navbar a.active');
+        if (activeLink) {
+            updateIndicator(activeLink);
+        }
+    });
+}
 
 // Inicializar efeitos quando a página carregar
 window.addEventListener('load', () => {
@@ -49,6 +119,9 @@ window.addEventListener('load', () => {
 
     // Efeito de fumaça neon azul na seção hero
     initNeonSmokeEffect();
+    
+    // Inicializar animação do navbar
+    initNavbarAnimation();
 });
 
 // Função para o efeito de fumaça neon azul
