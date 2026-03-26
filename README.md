@@ -72,19 +72,18 @@ Portfólio pessoal apresentando projetos, habilidades e informações de contato
 ## 📁 Estrutura de Arquivos
 
 ```
-Portfolio/
+PORTFOLIO/
 │
-├── index.html           # Estrutura HTML do portfólio
-├── styles.css           # Estilização completa (dark mode + responsivo)
-├── script.js            # JavaScript para interatividade e efeitos
-├── profile.svg          # Ícone de perfil placeholder
-├── placeholder.svg      # Imagem placeholder para projetos
+├── assets/                          # Pasta contendo todos os recursos visuais
+│   ├── calculadora.png              # Imagem do Projeto: Calculadora
+│   ├── foto perfil.png              # Foto de perfil do usuário
+│   ├── portfolio.png                # Screenshot do próprio portfólio
+│   └── SiteInterativo-ModoEscuro.png # Imagem do Projeto: Site Interativo
 │
-├── foto perfil.png      # Foto de perfil do usuário (deve ser adicionada)
-├── SiteInterativo-ModoEscuro.png  # Imagem do Projeto 1
-├── calculadora.png      # Imagem do Projeto 2
-│
-└── README.md            # Este arquivo
+├── index.html                       # Estrutura HTML do portfólio
+├── README.md                        # Documentação do projeto
+├── script.js                        # Lógica e interatividade (JS)
+└── styles.css                       # Estilização (CSS)
 ```
 
 ---
@@ -327,4 +326,4 @@ Este projeto é de código aberto e livre para uso pessoal e educacional.
 
 ---
 
-**Última atualização**: 16 de Março de 2026
+**Última atualização**: 26 de Março de 2026

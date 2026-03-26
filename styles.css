@@ -227,6 +227,10 @@ section {
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Esta linha garante que a distância seja sempre igual */
 }
 
 .skill-card:hover {
@@ -236,12 +240,20 @@ section {
 
 .skill-card i {
     font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
+    color: #00E5FF;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem; 
 }
 
 .skill-card h3 {
-    margin-bottom: 1rem;
+    margin: 0; 
+}
+
+.skill-card p {
+    margin: 0; 
 }
 
 /* Projetos */
