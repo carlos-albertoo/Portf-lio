@@ -3,116 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Carlos Alberto</title>
+    <meta name="description" content="Portfólio de Carlos Alberto - Desenvolvedor Web e estudante de Sistemas para Internet no UNIPÊ.">
+    <title>Carlos Alberto | Desenvolvedor Web</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger">
+            <label for="menu-toggle" class="hamburger" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
             <ul class="nav-menu">
-                <li><a href="#hero">Início</a></li>
+                <li><a href="#hero" class="active">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
-                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#journey">Trajetória</a></li>
+                <li><a href="#skills">Stack</a></li>
                 <li><a href="#projects">Projetos</a></li>
                 <li><a href="#contact">Contato</a></li>
-                <div class="indicator"></div>
             </ul>
+            <div class="indicator"></div>
         </nav>
     </header>
 
     <section id="hero">
-        <canvas id="hero-canvas"></canvas>
-        <div class="hero-content">
-            <img class="profile-photo" src="assets/foto perfil.png" alt="Foto de perfil de Carlos Alberto">
+        <canvas id="network-canvas"></canvas>
+        <div class="hero-content fade-in">
+            <div class="profile-glow">
+                <img class="profile-photo" src="assets/foto perfil.png" alt="Carlos Alberto">
+            </div>
             <h1 id="name"></h1>
-            <p id="title"></p>
+            <p id="title" class="subtitle"></p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                <a href="#contact" class="btn btn-outline">Falar Comigo</a>
+            </div>
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>Sobre Mim</h2>
-            <p>Olá! Sou Carlos Alberto, estudante de Sistemas para Internet apaixonado por criar soluções web inovadoras. Estou sempre explorando novas tecnologias para desenvolver interfaces intuitivas e funcionais.</p>
+    <section id="about" class="section-padding">
+        <div class="container fade-in">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <p>Olá! Sou Carlos Alberto, desenvolvedor web com uma visão que vai da infraestrutura ao produto final. Como estudante de Sistemas para Internet (com graduação prevista para Dezembro de 2026), dedico-me a construir aplicações inovadoras e escaláveis.</p>
+                <p>Minha trajetória une habilidades práticas de suporte de hardware, análise estratégica de mídias sociais e desenvolvimento de interfaces. Movido pela inovação, exploro constantemente novas arquiteturas para projetar soluções tecnológicas que agreguem valor real, criando interfaces inteligentes e focadas na usabilidade.</p>
+            </div>
         </div>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Habilidades</h2>
+    <section id="journey" class="section-padding">
+        <div class="container fade-in">
+            <h2 class="section-title">Minha Trajetória</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Sistemas para Internet</h3>
+                        <h4>UNIPÊ (Centro Universitário de João Pessoa)</h4>
+                        <p>Desenvolvimento acadêmico focado em engenharia de software, arquitetura web e construção de aplicações modernas. Previsão de formatura: Dez/2026.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Analista de Mídias Sociais</h3>
+                        <h4>Profissional</h4>
+                        <p>Gestão de conteúdo multiplataforma, desenvolvimento de estratégias de comunicação, acompanhamento de métricas e criação de assets visuais e multimídia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Suporte Técnico</h3>
+                        <h4>Infraestrutura e Hardware</h4>
+                        <p>Mais de dois anos de experiência na manutenção de hardwares, formatação de sistemas, diagnósticos de desktops e notebooks, garantindo a estabilidade e o desempenho para os usuários.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padding">
+        <div class="container fade-in">
+            <h2 class="section-title">Ecossistema e Ferramentas</h2>
+            
+            <h3 class="skill-category">Front-end & Interfaces</h3>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML</h3>
-                    <p>Estruturação de páginas web semânticas.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS</h3>
-                    <p>Estilização responsiva e moderna.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js-square"></i>
-                    <h3>JavaScript</h3>
-                    <p>Interatividade e dinamismo nas aplicações.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-typescript-plain"></i>
-                    <h3>TypeScript</h3>
-                    <p>Tipagem estática para um código mais seguro e escalável.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                    <p>Criação de interfaces modulares e Single Page Applications.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="black-icon fab fa-node-js"></i> 
-                    <h3>Next.js</h3>
-                    <p>Framework React com foco em SEO e renderização híbrida.</p>
-                </div>
+                <div class="skill-card"><i class="fab fa-react"></i><span>React</span></div>
+                <div class="skill-card"><i class="devicon-nextjs-plain"></i><span>Next.js</span></div>
+                <div class="skill-card"><i class="fab fa-angular"></i><span>Angular</span></div>
+                <div class="skill-card"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+                <div class="skill-card"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                <div class="skill-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            </div>
+
+            <h3 class="skill-category">Back-end & Arquitetura</h3>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="devicon-csharp-plain"></i><span>C#</span></div>
+                <div class="skill-card"><i class="devicon-dot-net-plain"></i><span>.NET Framework</span></div>
+                <div class="skill-card"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
+                <div class="skill-card"><i class="devicon-php-plain"></i><span>PHP</span></div>
+            </div>
+
+            <h3 class="skill-category">Multimídia & Design</h3>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="devicon-photoshop-plain"></i><span>Photoshop</span></div>
+                <div class="skill-card"><i class="fas fa-bezier-curve"></i><span>CorelDRAW</span></div>
+                <div class="skill-card"><i class="devicon-canva-original"></i><span>Canva</span></div>
+                <div class="skill-card"><i class="fas fa-video"></i><span>Edição de Vídeo</span></div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projetos</h2>
+    <section id="projects" class="section-padding">
+        <div class="container fade-in">
+            <h2 class="section-title">Projetos em Destaque</h2>
             <div class="projects-grid">
-                <a href="https://github.com/carlos-albertoo/Portf-lio" target="_blank" class="project-card">
-                    <img src="assets/portfolio.png" alt="Projeto 1">
-                    <h3>Portfolio Pessoal</h3>
-                    <p>Um portfólio web moderno, minimalista e totalmente responsivo desenvolvido em HTML5, CSS3 e JavaScript vanilla</p>
+                
+                <a href="https://github.com/carlos-albertoo/Korp_Teste_CarlosAlberto" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="assets/korp-erp.png" alt="Projeto Korp ERP" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Korp ERP - Sistema de Emissão de Notas Fiscais</h3>
+                        <p>Desenvolvimento de módulo para emissão e gerenciamento de notas fiscais. Focado em validação de dados, usabilidade e integração de sistemas para otimizar processos corporativos.</p>
+                        <div class="project-tags">
+                            <span>ERP</span><span>Sistema Web</span><span>Integração</span>
+                        </div>
+                    </div>
                 </a>
-                <a href="https://github.com/carlos-albertoo/Projeto-PHP" target="_blank" class="project-card">
-                    <img src="assets/calculadora.png" alt="Projeto 2">
-                    <h3>Calculadora PHP</h3>
-                    <p>Um projeto de calculadora web simples, construído com foco no processamento backend usando PHP, juntamente com HTML e JavaScript para a interface e interatividade do usuário.<br> Tecnologias Utilizadas:<br>
-Backend: PHP<br>
-Frontend: HTML5<br>
-Estilização: CSS3 (vinculado via style.css)<br>
-Interatividade: JavaScript (Vanilla)</p>
+
+                <a href="https://github.com/carlos-albertoo/wsFrontend-Fabrica26.1" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="assets/Site personagem rick.png" alt="Rick And Morty App" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Rick And Morty Explorer</h3>
+                        <p>Interface web funcional e de alto desempenho consumindo API pública. Estrutura de diretórios otimizada (incluindo rotas /detalhes personalizadas para melhor semântica de URL).</p>
+                        <div class="project-tags">
+                            <span>Next.js</span><span>TypeScript</span><span>Radix UI</span>
+                        </div>
+                    </div>
                 </a>
-               
+
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="container">
-            <h2>Contato</h2>
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/carlos-alberto-br/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/carlos-albertoo" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="mailto:carliinhos1994@gmail.com"><i class="fas fa-envelope"></i> E-mail</a>
+   <footer id="contact" class="section-padding">
+        <div class="container fade-in">
+            <h2 class="section-title">Vamos construir algo juntos?</h2>
+            
+            <div class="contact-wrapper">
+                <!-- Formulário de Contato Direto -->
+                <form id="contact-form" action="https://formsubmit.co/carliinhos1994@gmail.com" method="POST" class="contact-form">
+                    <!-- Configurações do FormSubmit -->
+                    <input type="hidden" name="_subject" value="Novo contato do seu Portfólio!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Seu Nome" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Seu E-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" rows="5" placeholder="Sua Mensagem..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        Enviar Mensagem <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <!-- Informações e Redes -->
+                <div class="contact-info">
+                    <p>Seja para vagas de desenvolvimento, suporte ou criação visual, preencha o formulário ou conecte-se diretamente comigo pelas redes abaixo.</p>
+                    <div class="contact-links-vertical">
+                        <a href="mailto:carliinhos1994@gmail.com"><i class="fas fa-envelope"></i> carliinhos1994@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/carlos-alberto-br/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/carlos-albertoo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
             </div>
+        </div> <!-- Fechamento da div .container -->
+
+        <!-- Barra de copyright fora do container para pegar 100% da tela -->
+        <div class="copyright-bar">
+            <p class="copyright">© 2026 Carlos Alberto. Todos os direitos reservados.</p>
         </div>
     </footer>
 

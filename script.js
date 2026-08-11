@@ -1,212 +1,233 @@
-// Efeito typewriter para o nome
-function typeWriter(element, text, speed) {
-    let i = 0;
-    element.innerHTML = '';
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// Efeito typewriter para o título
-function typeWriterTitle(element, text, speed) {
-    let i = 0;
-    element.innerHTML = '';
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// Animação do navbar com indicador e links ativos
-function initNavbarAnimation() {
-    const navLinks = document.querySelectorAll('.navbar a');
-    const indicator = document.querySelector('.indicator');
-    const menuToggle = document.getElementById('menu-toggle');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Efeito Typewriter Refinado
+    const nameElement = document.getElementById('name');
+    const titleElement = document.getElementById('title');
     
-    function updateIndicator(link) {
-        if (!link || !indicator) return;
-        
-        const linkRect = link.getBoundingClientRect();
-        const navbarRect = document.querySelector('.navbar ul').getBoundingClientRect();
-        
-        if (navbarRect.width > 0) {
-            indicator.style.left = (linkRect.left - navbarRect.left) + 'px';
-            indicator.style.width = linkRect.width + 'px';
-        }
-    }
-    
-    function setActiveLink(link) {
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        link.classList.add('active');
-        updateIndicator(link);
-    }
-    
-    // Evento de clique nos links
-    navLinks.forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            setActiveLink(this);
-            
-            // Fechar menu mobile
-            if (menuToggle) {
-                menuToggle.checked = false;
+    function typeText(element, text, speed, callback = null) {
+        let i = 0;
+        element.innerHTML = '';
+        function type() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else if (callback) {
+                setTimeout(callback, 500);
             }
-            
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
+        }
+        type();
+    }
+
+    setTimeout(() => {
+        typeText(nameElement, 'Carlos Alberto', 80, () => {
+            typeText(titleElement, 'Desenvolvedor Web', 60);
+        });
+    }, 300);
+
+    // 2. Animação de Scroll Nativa (Intersection Observer)
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeObserver.unobserve(entry.target); // Anima só uma vez
+            }
+        });
+    }, { threshold: 0.15 });
+
+    fadeElements.forEach(el => fadeObserver.observe(el));
+
+    // 3. Atualização do Menu Ativo usando Observer (Alta Performance)
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const indicator = document.querySelector('.indicator');
+
+    function updateIndicator(targetLink) {
+        if (!indicator || window.innerWidth <= 768) return;
+        const linkRect = targetLink.getBoundingClientRect();
+        const navRect = document.querySelector('.navbar').getBoundingClientRect();
+        indicator.style.left = `${linkRect.left - navRect.left}px`;
+        indicator.style.width = `${linkRect.width}px`;
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                        updateIndicator(link);
+                    }
                 });
             }
         });
-    });
-    
-    // Detectar link ativo ao fazer scroll
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+    }, { threshold: 0.3, rootMargin: "-10% 0px -40% 0px" });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Comportamento dos links de navegação
+    const menuToggle = document.getElementById('menu-toggle');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            menuToggle.checked = false; // Fecha menu mobile
             
-            if (scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-                updateIndicator(link);
-            }
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-    
-    // Inicializar indicador no primeiro link
-    if (navLinks.length > 0) {
-        setActiveLink(navLinks[0]);
-    }
-    
-    // Atualizar indicador ao redimensionar
+
+    // Ajusta indicador no resize
     window.addEventListener('resize', () => {
-        const activeLink = document.querySelector('.navbar a.active');
-        if (activeLink) {
-            updateIndicator(activeLink);
-        }
+        const active = document.querySelector('.nav-menu a.active');
+        if (active) updateIndicator(active);
     });
-}
 
-// Inicializar efeitos quando a página carregar
-window.addEventListener('load', () => {
-    const nameElement = document.getElementById('name');
-    const titleElement = document.getElementById('title');
-
-    typeWriter(nameElement, 'Carlos Alberto', 100);
+    // Inicializa indicador
     setTimeout(() => {
-        typeWriterTitle(titleElement, 'Desenvolvedor Front-end', 100);
-    }, 2000); // Delay para começar o título após o nome
+        const active = document.querySelector('.nav-menu a.active');
+        if (active) updateIndicator(active);
+    }, 500);
 
-    // Efeito de fumaça neon azul na seção hero
-    initNeonSmokeEffect();
+    // 4. Efeito Especial: Rede Neural (Network Particles em Soft Red)
+    initNetworkCanvas();
+
+    // 5. Envio do Formulário de Contato via AJAX
+    const contactForm = document.getElementById('contact-form');
     
-    // Inicializar animação do navbar
-    initNavbarAnimation();
+    if(contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede a página de recarregar
+            
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Feedback visual de carregamento
+            btn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Sucesso
+                    btn.innerHTML = 'Enviado com sucesso! <i class="fas fa-check"></i>';
+                    btn.style.backgroundColor = '#28a745'; // Cor verde
+                    this.reset(); // Limpa os campos
+                } else {
+                    // Erro na API
+                    btn.innerHTML = 'Erro ao enviar <i class="fas fa-times"></i>';
+                    btn.style.backgroundColor = '#dc3545'; // Cor vermelha
+                }
+                
+                // Retorna o botão ao estado original após 4 segundos
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.disabled = false;
+                }, 4000);
+                
+            }).catch(error => {
+                // Erro de rede
+                btn.innerHTML = 'Erro de Conexão <i class="fas fa-times"></i>';
+                btn.style.backgroundColor = '#dc3545';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.disabled = false;
+                }, 4000);
+            });
+        });
+    }
 });
 
-// Função para o efeito de fumaça neon azul
-function initNeonSmokeEffect() {
-    const canvas = document.getElementById('hero-canvas');
+function initNetworkCanvas() {
+    const canvas = document.getElementById('network-canvas');
     const ctx = canvas.getContext('2d');
-    const heroSection = document.getElementById('hero');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    // Ajustar tamanho do canvas
-    function resizeCanvas() {
-        canvas.width = heroSection.offsetWidth;
-        canvas.height = heroSection.offsetHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    let particlesArray = [];
+    const color = '#e63946'; // Soft Red
 
-    let mouse = { x: 0, y: 0 };
-    let particles = [];
-    let isMouseInHero = false;
-
-    // Classe para partículas
     class Particle {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.size = Math.random() * 5 + 1;
-            this.speedX = Math.random() * 3 - 1.5;
-            this.speedY = Math.random() * 3 - 1.5;
-            this.life = 1;
-            this.decay = Math.random() * 0.02 + 0.01;
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
         }
-
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
-            this.life -= this.decay;
-            this.size *= 0.98;
-        }
 
+            // Rebater nas bordas
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
         draw() {
-            ctx.save();
-            ctx.globalAlpha = this.life;
-            ctx.fillStyle = '#00d4ff';
-            ctx.shadowColor = '#00d4ff';
-            ctx.shadowBlur = 10;
+            ctx.fillStyle = color;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
-            ctx.restore();
         }
     }
 
-    // Event listeners para mouse
-    heroSection.addEventListener('mouseenter', () => {
-        isMouseInHero = true;
-    });
+    function init() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.width * canvas.height) / 12000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
 
-    heroSection.addEventListener('mouseleave', () => {
-        isMouseInHero = false;
-    });
-
-    heroSection.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-
-        if (isMouseInHero) {
-            for (let i = 0; i < 3; i++) {
-                particles.push(new Particle(mouse.x, mouse.y));
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                             + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                
+                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                    opacityValue = 1 - (distance / 20000);
+                    ctx.strokeStyle = `rgba(230, 57, 70, ${opacityValue})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
             }
         }
-    });
+    }
 
-    // Animação
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles = particles.filter(particle => particle.life > 0);
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+        connect();
         requestAnimationFrame(animate);
     }
 
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+    });
+
+    init();
     animate();
 }
