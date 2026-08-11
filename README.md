@@ -1,263 +1,115 @@
-# 🌟 Portfólio Pessoal - Carlos Alberto
+# Portfólio Pessoal — Carlos Alberto
 
-Um portfólio web moderno, minimalista e totalmente responsivo desenvolvido em **HTML5, CSS3 e JavaScript vanilla**.
-
----
-
-## 📋 Descrição
-
-Portfólio pessoal apresentando projetos, habilidades e informações de contato de Carlos Alberto, estudante de **Sistemas para Internet**. O site possui um design **dark mode** nativo com elementos interativos e efeitos visuais modernos.
+Portfólio web responsivo criado com **HTML5**, **CSS3** e **JavaScript puro**. O projeto apresenta um layout escuro moderno, navegação suave e animações leves, ideal para exibir experiência, habilidades e projetos.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Sobre este projeto
 
-### Frontend
-- **HTML5** - Estrutura semântica e acessibilidade
-- **CSS3** - Estilização responsiva com variáveis CSS, Flexbox e Grid
-- **JavaScript (Vanilla)** - Interatividade e efeitos dinamicamente renderizados com Canvas
+Este portfólio foi desenvolvido para mostrar o perfil profissional de Carlos Alberto como desenvolvedor web e estudante de Sistemas para Internet.
 
-### Bibliotecas Externas
-- **Font Awesome 6** - Ícones para habilidades e links de contato
-- **Canvas API** - Renderização de efeitos de partículas neon
-
-### Recursos de Design
-- **Dark Mode Nativo** - Paleta de cores otimizada para tema escuro (#121212, #1e1e1e)
-- **Responsividade Total** - Adaptação automática para dispositivos móveis, tablets e desktops
-- **Smooth Scroll** - Navegação suave entre seções
+O site possui:
+- Navegação fixa com menu responsivo
+- Seção de apresentação com efeito de digitação
+- Seção sobre a trajetória acadêmica e profissional
+- Painel de skills com ícones
+- Projetos em destaque com cards clicáveis
+- Formulário de contato funcional via FormSubmit
+- Canvas animado de partículas no fundo do hero
 
 ---
 
-## ✨ Recursos Principais
+## Tecnologias usadas
 
-### 1. **Seção Hero (Apresentação)**
-- Foto de perfil circular com borda neon azul
-- Efeito de digitação (typewriter) no nome e cargo
-- **Efeito de fumaça neon azul** ao mover o mouse
-- Gradiente de fundo moderno
-
-### 2. **Seção Sobre Mim**
-- Texto descritivo sobre o desenvolvedor
-- Informações sobre o curso de Sistemas para Internet
-- Design limpo e centrado
-
-### 3. **Seção Habilidades**
-- Grid responsivo com 3 cards (HTML, CSS, JavaScript)
-- Ícones do Font Awesome
-- Efeito de elevação (lift) ao passar o mouse
-- Descrição de cada tecnologia
-
-### 4. **Seção Projetos**
-- Grid dinâmico de projetos com imagens
-- Links clicáveis que abrem em nova aba
-- Hover com sombra neon
-- Placeholder SVG para projetos futuros
-
-### 5. **Rodapé de Contato**
-- Links para LinkedIn, GitHub e E-mail
-- Ícones Font Awesome
-- Design responsivo e acessível
-
-### 6. **Navegação (Navbar)**
-- Menu fixo no topo com links internos para todas as seções
-- **Indicador dinâmico animado** que segue o link ativo
-- **Auto-detecção de seção** ao fazer scroll (link ativo muda automaticamente)
-- Efeito underline animado nos links ao passar o mouse
-- **Efeito glow neon** nos links hover e active
-- Smooth scroll integrado com transições suaves
-- Design responsivo com ajustes para dispositivos móveis
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Font Awesome 6 (CDN)
+- Devicon (CDN)
+- FormSubmit (envio de formulário)
 
 ---
 
-## 📁 Estrutura de Arquivos
+## Estrutura do projeto
 
 ```
-PORTFOLIO/
-│
-├── assets/                          # Pasta contendo todos os recursos visuais
-│   ├── calculadora.png              # Imagem do Projeto: Calculadora
-│   ├── foto perfil.png              # Foto de perfil do usuário
-│   ├── portfolio.png                # Screenshot do próprio portfólio
-│   └── SiteInterativo-ModoEscuro.png # Imagem do Projeto: Site Interativo
-│
-├── index.html                       # Estrutura HTML do portfólio
-├── README.md                        # Documentação do projeto
-├── script.js                        # Lógica e interatividade (JS)
-└── styles.css                       # Estilização (CSS)
+Portf-lio/
+├── assets/
+│   ├── foto perfil.png
+│   ├── korp-erp.png
+│   └── Site personagem rick.png
+├── index.html
+├── styles.css
+├── script.js
+└── README.md
 ```
 
 ---
 
-## 🎨 Paleta de Cores
+## Seções do site
 
-| Cor | Código | Uso |
-|-----|--------|-----|
-| Fundo Escuro | `#121212` | Fundo principal |
-| Fundo Secundário | `#1e1e1e` | Cards e seções |
-| Texto Claro | `#ffffff` | Texto principal |
-| Destaque Neon | `#00d4ff` | Botões, links, efeitos |
+1. **Hero**
+   - Foto de perfil
+   - Nome e cargo com animação de digitação
+   - Botões de ação para projetos e contato
+   - Canvas de partículas em background
+2. **Sobre mim**
+   - Apresentação pessoal
+   - Descrição do perfil acadêmico e profissional
+3. **Minha trajetória**
+   - Timeline com formação, mídias sociais e suporte técnico
+4. **Ecossistema e ferramentas**
+   - Skills em front-end, back-end e design
+   - Ícones Font Awesome e Devicon
+5. **Projetos em destaque**
+   - Cards de projeto com imagem, título e tags
+   - Links para repositórios externos
+6. **Contato**
+   - Formulário que envia mensagem via FormSubmit
+   - Links diretos para e-mail, LinkedIn e GitHub
 
 ---
 
-## 🚀 Como Usar
+## Como executar
 
-### Pré-requisitos
-- Navegador moderno (Chrome, Firefox, Safari, Edge)
-- Nenhuma instalação ou servidor necessário
+### Requisitos
+- Navegador moderno (Chrome, Firefox, Edge, Safari)
+- Conexão com internet para carregar ícones externos
 
 ### Passos
-1. Clone ou baixe a pasta do projeto
-2. Abra `index.html` em seu navegador (duplo clique ou arraste para o navegador)
-3. Navegue pelas seções usando o menu superior
-4. Mova o mouse sobre a seção Hero para ver o efeito de fumaça neon
+1. Baixe ou clone o repositório
+2. Abra `index.html` no navegador
 
-### Personalização
-- Substitua `foto perfil.png` pela sua foto de perfil real
-- Atualize os links dos projetos em `index.html` (atributo `href`)
-- Modifique as cores em `styles.css` alterando as variáveis CSS (`:root`)
-- Customize o texto em `index.html` com suas próprias informações
-- Ajuste a velocidade do typewriter nos parâmetros da função `typeWriter()`
-- Configure a sensibilidade do efeito de fumaça alterando a quantidade de partículas em `initNeonSmokeEffect()`
+> Não é necessário servidor local. O site roda apenas com arquivos estáticos.
 
 ---
 
-## 📱 Responsividade
+## Personalização rápida
 
-O portfólio é totalmente responsivo com breakpoints para:
-- **Desktop** (1200px+) - Layout grid com 3 colunas
-- **Tablet** (768px - 1199px) - Layout ajustado
-- **Mobile** (<768px) - Navegação em coluna única, imagens otimizadas
-
----
-
-## ⚡ Efeitos JavaScript Implementados
-
-### 1. **Animação do Navbar**
-```javascript
-- Indicador dinâmico que segue o mouse e o link ativo
-- Posicionamento smooth com cubic-bezier (0.34, 1.56, 0.64, 1)
-- Auto-detecção de seção ao fazer scroll (offset de -200px)
-- Classe "active" aplicada ao link correspondente da seção visível
-- Efeitos de glow neon ao hover e quando ativo
-- Redimensionamento automático ao mudar tamanho da janela
-- Transições de 0.3-0.4 segundos para fluidez
-```
-
-### 2. Typewriter (Máquina de Escrever)
-```javascript
-- Nome "Carlos Alberto" aparece letra por letra
-- Cargo "Desenvolvedor Front-end" começa após 2 segundos
-- Velocidade: 100ms por caractere
-```
-
-### 2. Smooth Scroll
-```javascript
-- Navegação suave ao clicar nos links do menu
-- Scroll automático para a seção correspondente
-- Transição suave integrada na function initNavbarAnimation()
-```
-
-### 3. Efeito de Fumaça Neon
-```javascript
-- Partículas azul neon (#00d4ff) seguem o cursor
-- Ativo apenas na seção Hero
-- Efeito de fade-out gradual (decay)
-- Shadow blur para brilho neon realista
-- Renderizado via Canvas API
-```
+- Troque a imagem `assets/foto perfil.png` pela sua própria foto
+- Atualize o texto de apresentação em `index.html`
+- Modifique os links do menu e do rodapé
+- Ajuste cores e espaçamentos em `styles.css`
+- Altere o texto do efeito typewriter em `script.js`
+- Atualize o endereço de e-mail do FormSubmit em `index.html`
 
 ---
 
-## 🎨 Animações CSS Principais
+## Observações importantes
 
-### Navbar Links
-```css
-/* Underline animado ao hover */
-.navbar a::before {
-    width: 0;
-    transition: width 0.3s ease;
-}
-
-.navbar a:hover::before {
-    width: 100%;
-    background: linear-gradient(90deg, var(--accent-color), rgba(0, 212, 255, 0.5));
-}
-```
-
-### Indicador Dinâmico
-```css
-/* Segue suavemente o link ativo */
-.indicator {
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
-}
-```
-
-### Efeito Glow nos Links
-```css
-.navbar a:hover {
-    color: var(--accent-color);
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-}
-```
+- O formulário de contato usa FormSubmit para envio sem backend.
+- O `canvas` de partículas é renderizado em `script.js` para criar movimento no fundo do hero.
+- A navegação usa `scrollIntoView` para rolar suavemente entre seções.
+- A barra de menu mobile é ativada pelo checkbox `#menu-toggle`.
 
 ---
 
-## 📊 Recursos CSS Avançados
+## Contato
 
-- **Variáveis CSS** - Fácil customização de cores e valores
-- **Flexbox & Grid** - Layouts responsivos e modernos
-- **Transitions & Transforms** - Animações suaves
-- **Box-shadow** - Efeitos de profundidade e glow
-- **Media Queries** - Adaptação para diferentes telas
-- **Gradient** - Fundos degradê modernos
-- **Pseudo-elementos (::before)** - Efeitos visuais sem DOM extra
-- **Backdrop-filter** - Blur effects (compatível com navegadores modernos)
+- E-mail: `carliinhos1994@gmail.com`
+- LinkedIn: https://www.linkedin.com/in/carlos-alberto-br/
+- GitHub: https://github.com/carlos-albertoo
 
----
-
-## � Versão do Projeto
-
-**Versão Atual:** 2.0.0
-
-### Changelog
-
-#### v2.0.0 (19/03/2026)
-- ✨ **Navbar completamente redesenhado** com animações suaves
-- ✨ Indicador dinâmico que segue os links ativos
-- ✨ Auto-detecção de seção ao fazer scroll
-- ✨ Efeito underline animado nos links
-- ✨ Efeito glow neon ao hover e quando ativo
-- 🐛 Melhorias na responsividade do navbar
-
-#### v1.0.0 (Data anterior)
-- 🎉 Lançamento inicial do portfólio
-- Seções hero, about, skills, projects, contact
-- Efeito de fumaça neon
-- Smooth scroll integrado
-
----
-
-## 🤝 Contribuições
-
-Sugestões e melhorias são bem-vindas! Este é um projeto em constante evolução.
-
----
-
-## ⚙️ Requisitos Técnicos
-
-### Navegadores Suportados
-- ✅ Chrome 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Edge 90+
-- ✅ Opera 76+
-
-### Performance
-- ⚡ Carregamento rápido (sem dependências externas pesadas)
-- ⚡ Animações suaves (60fps) com requestAnimationFrame
-- ⚡ Otimização de CSS com variáveis para performance
-- ⚡ Zero dependências de frameworks (apenas Font Awesome para ícones)
 
 ### Acessibilidade
 - ♿ Estrutura semântica HTML5
@@ -326,4 +178,4 @@ Este projeto é de código aberto e livre para uso pessoal e educacional.
 
 ---
 
-**Última atualização**: 26 de Março de 2026
+**Última atualização**: 11 de Agosto de 2026
